@@ -1,0 +1,301 @@
+doctype html
+head
+    meta(charset='utf-8')
+    title LandX
+    meta(name='viewport' content='initial-scale=1')
+    link(rel='stylesheet' type='text/css' href='css/main.css')
+    link(rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+body
+    header.header
+        .container
+            .header__content
+                img(src="img/LandX.png", alt="Logo").header__logo
+                nav.header__nav.nav
+                    .nav__burger
+                        .nav__burger_top
+                        .nav__burger_mid
+                        .nav__burger_bottom
+                    ul.nav__list
+                        li.nav__item
+                            a(href="#home").link Home
+                        li.nav__item
+                            a(href="#brief").link Services
+                        li.nav__item
+                            a(href="#features").link Features
+                        li.nav__item
+                            a(href="#pricing").link Packages
+                        li.nav__item
+                            a(href="#testimonials").link Testimonials
+                        li.nav__item
+                            a(href="#contact").link Contact  
+    section.banner#home
+        .container
+            .banner__content
+                .banner__main
+                    .banner__text Get the Best 
+                        span.marked-text Solution 
+                        |for Your Business
+                    .banner__description Accelerator photo sharing business school drop out ramen hustle crush it revenue traction platforms. Coworking viral landing page user base.
+                .banner__flipbox
+                    .banner__link-to-form Try premium account
+                    form(action="").banner__form.form
+                        input(type="text", name="", placeholder="Your Name").form__item
+                        input(type="email", name="", placeholder="Your E-mail").form__item
+                        input(type="tel", name="", placeholder="Phone Number").form__item
+                        input(type="button", value="Get Started").form__item.form__button
+    section.brief#brief
+            .brief__right
+                .container
+                    .brief__content
+                        .brief__heading
+                            h2.h2_brief Explore the awesomeness
+                            .h2-underline.h2-underline_brief
+                            h3.h3.h3_brief Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+                        .brief__features.brief__features_right
+                            .brief__feature
+                                .brief__icon.icon &#xe80c;
+                                .brief__caption
+                                    .brief__header Easy to Customize
+                                    .brief__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.
+                            .brief__feature
+                                .brief__icon.icon &#xe804;
+                                .brief__caption
+                                    .brief__header Quality Design
+                                    .brief__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.
+                        img(src="img/browser.png", alt="").brief__browser.brief__browser_right
+            .brief__left
+                .container
+                    .brief__content
+                        .brief__heading
+                            h2.h2.h2_brief Describe more about product
+                            .h2-underline.h2-underline_brief
+                            h3.h3.h3_brief Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut.
+                        .brief__features.brief__features_left
+                            .brief__feature
+                                .brief__icon.icon &#xf267;
+                                .brief__caption
+                                    .brief__header Good in Performance
+                                    .brief__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.
+                            .brief__feature
+                                .brief__icon.icon &#xe801;
+                                .brief__caption
+                                    .brief__header Video Background
+                                    .brief__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder.
+                        img(src="img/browser.png", alt="").brief__browser.brief__browser_left
+    section.features#features
+        .container
+            .features__content
+                h2.h2 LandX Features
+                .h2-underline
+                h3.h3 Term sheet convertible note colluding bootstrapping.
+                .features__list
+                    .features__item
+                        .features__icon.icon &#xf14e;
+                        .features__header Responsive Design
+                        .features__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.
+                    .features__item
+                        .features__icon.icon &#xf278;
+                        .features__header 1000+ Font Icons
+                        .features__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.
+                    .features__item
+                        .features__icon.icon &#xe80a;
+                        .features__header Built with Bootstrap 3.1
+                        .features__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.
+                    .features__item
+                        .features__icon.icon &#xe80d;
+                        .features__header Lots of Variations
+                        .features__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.
+                    .features__item
+                        .features__icon.icon &#123; &#125;
+                        .features__header Valid Markup
+                        .features__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.
+                    .features__item
+                        .features__icon.icon &#xe80b;
+                        .features__header Easy to Customize
+                        .features__description Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement.
+    section.pricing#pricing
+        .container.pricing__content
+            h2.h2 Pricing Table
+            .h2-underline
+            h3.h3 Term sheet convertible note colluding bootstrapping.
+            .pricing__cards
+                .pricing__card.card
+                    .card__heading
+                        .card__header Basic
+                        .card__description From 
+                            span.marked-text.marked-text_card $99 
+                            | per month
+                    .card__content
+                        .card__option
+                            .card__item Total Users
+                            .card__value 15
+                        .card__option
+                            .card__item Unlimited Styles
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item Advance Protection
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item Cloud Storage
+                            .card__value.icon &#xe809;
+                        .card__option
+                            .card__item 24/7 Customer Service
+                            .card__value.icon &#xe809;
+                        .card__option
+                            .card__item Bacup Service
+                            .card__value.icon &#xe809;
+                    .card__footer
+                        .card__price $99 Per Month
+                        .card__button Sign Up
+                .pricing__card.card
+                    .card__heading
+                        .card__header Premium
+                        .card__description From 
+                            span.marked-text.marked-text_card $199 
+                            | per month
+                    .card__content
+                        .card__option
+                            .card__item Total Users
+                            .card__value 35
+                        .card__option
+                            .card__item Unlimited Styles
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item Advance Protection
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item Cloud Storage
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item 24/7 Customer Service
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item Bacup Service
+                            .card__value.icon &#xe809;
+                    .card__footer
+                        .card__price $199 Per Month
+                        .card__button Sign Up
+                .pricing__card.card
+                    .card__heading
+                        .card__header Ultimate
+                        .card__description From 
+                            span.marked-text.marked-text_card $299 
+                            | per month
+                    .card__content
+                        .card__option
+                            .card__item Total Users
+                            .card__value 60
+                        .card__option
+                            .card__item Unlimited Styles
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item Advance Protection
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item Cloud Storage
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item 24/7 Customer Service
+                            .card__value.icon &#xe808;
+                        .card__option
+                            .card__item Bacup Service
+                            .card__value.icon &#xe808;
+                    .card__footer
+                        .card__price $299 Per Month
+                        .card__button Sign Up
+    section.video
+        .container.video__content
+            h2.h2 Watch Video
+            .h2-underline
+            h3.h3 Term sheet convertible note colluding bootstrapping.
+            .video__container
+                iframe.video__player(src="https://www.youtube-nocookie.com/embed/aeL2c1eR4hU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen title="Tesla Meets Ireland")
+            .video__captions
+                .video__caption
+                    span.marked-text.icon &#xf064; 
+                    | Trusted by 100+ users
+                .video__caption
+                    span.marked-text.icon &#xe807; 
+                    | Video Documentation
+                .video__caption
+                    span.marked-text.icon &#xe806; 
+                    | 24/7 Chat Support
+    section.screenshot
+        .container
+            .screenshot__content
+                h2.h2 Product screenshots
+                .h2-underline
+                h3.h3 Term sheet convertible note colluding bootstrapping.
+                .screenshot__slider.slider
+                    .slider__item
+                        img(src="img/slide1.png", alt="").slider__img
+                    .slider__item
+                        img(src="img/slide2.png", alt="").slider__img
+                    .slider__item
+                        img(src="img/slide3.png", alt="").slider__img
+                    .slider__item
+                        img(src="img/slide2.png", alt="").slider__img
+                    .slider__item
+                        img(src="img/slide3.png", alt="").slider__img
+                    .slider__item
+                        img(src="img/slide1.png", alt="").slider__img
+                    .slider__item
+                        img(src="img/slide3.png", alt="").slider__img
+                    .slider__item
+                        img(src="img/slide1.png", alt="").slider__img
+                    .slider__item
+                        img(src="img/slide2.png", alt="").slider__img
+    section.testimonials#testimonials
+        .container.testimonials__content
+            h2.h2 Trusted by Thousands
+            .h2-underline
+            h3.h3 Term sheet convertible note colluding bootstrapping.
+            .testimonials__partners
+                img(src="img/vogue.png", alt="").testimonials__logo
+                img(src="img/mashable.png", alt="").testimonials__logo
+                img(src="img/tnw.png", alt="").testimonials__logo
+                img(src="img/natgeo.png", alt="").testimonials__logo
+            .testimonials__cards
+                .testimonials__card
+                    .testimonials__wrapper
+                        .testimonials__text Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding.
+                    .testimonials__author Willeke Hoekstra
+                    .testimonials__author-company AbZ Network
+                .testimonials__card
+                    .testimonials__wrapper
+                        .testimonials__text Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding.
+                    .testimonials__author Răducu Neamțu
+                    .testimonials__author-company AbZ Network
+                .testimonials__card
+                    .testimonials__wrapper
+                        .testimonials__text Lorem lean startup ipsum product market fit customer development acquihire technical cofounder. User engagement A/B testing shrink a market venture capital pitch deck. Social bookmarking group buying crowded market pivot onboarding.
+                    .testimonials__author Markel Díaz
+                    .testimonials__author-company AbZ Network
+    section.registration
+        .container
+            .registration__content
+                .registration__description We Are Ready to Help You
+                .registration__header Get the Best Solution for Your Business
+                .registration__text Register today and get 1 month free trial
+                button.registration__button Get Started 
+                    span.icon &#xe803; 
+    footer.footer#contact
+            .footer__contact-us.contact-us
+                .container
+                    .contact-us__text Have any question or need help?
+                    .contact-us__link.link
+                        span.icon &#xe800; 
+                        | Contact us now 
+            .footer__copyright
+                .container
+                    img(src="img/LandX.png", alt="Logo").footer__logo
+                    .footer__copyright-text ©2014 LandX Template LLC. 
+                    .socials.socials_footer
+                        .socials__item.socials__item_footer.icon &#xf09a;
+                        .socials__item.socials__item_footer.icon &#xf099;
+                        .socials__item.socials__item_footer.icon &#xf312;
+                        .socials__item.socials__item_footer.icon &#xf05a;
+                        .socials__item.socials__item_footer.icon &#xf32d;
+                        .socials__item.socials__item_footer.icon &#xf318;
+    script(src="js/script.js")

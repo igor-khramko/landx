@@ -1,0 +1,910 @@
+@import 'normalize';
+@import 'variables';
+@import 'fonts';
+@import 'slick';
+
+@mixin ralewayBold ($size){
+  font-family: 'ralewayBold';
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: $size;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.h2{
+  font-size: 35px;
+  font-family: "Raleway";
+  color: rgb(50, 50, 50);
+  text-align: center;
+  &_brief{
+    text-align: left;
+    line-height: normal;
+    margin: 0;
+  }
+}
+
+.h2-underline{
+    border-bottom: 1px solid rgb(1, 153, 230);
+    width: 68px;
+    text-align: center;
+    margin: 20px auto;
+    &_brief{
+      text-align: left;
+      margin: 20px 0;
+    }
+}
+
+.h3{
+    font-size: 17px;
+    font-family: "Source Sans Pro";
+    color: rgb(114, 114, 114);
+    text-align: center;
+    &_brief{
+      text-align: left;
+      line-height: normal;
+      margin: 0;
+    }
+}
+
+.marked-text{
+  color: rgb(1, 153, 230);
+  font-family: inherit;
+  &_card{
+    transition: color .5s linear;
+  }
+}
+
+.icon{
+  font-family: 'icons';
+}
+
+.socials{
+  font-size: 15px;
+  display: grid;
+  grid-auto-rows: 25px;
+  grid-gap: 5px;
+  justify-content: center;
+  &_header{
+    grid-template-columns: repeat(3, 25px);
+  }
+  &_footer{
+    grid-template-columns: repeat(6, 25px);
+    color: $light-bg;
+  }
+  &__item{ 
+    padding: 5px 0;
+    text-align: center;
+    &_header{
+      background-color: rgb(255, 255, 255);
+      border-radius: 50%;
+    }
+    &_footer{
+      background-color: rgb(145, 145, 145);
+      padding: 5px 0;
+      border-radius: 4px;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+  }
+  
+}
+
+.header{
+  background-color: rgb(255, 255, 255);
+  border-bottom: 1px solid rgb(50, 50, 50);
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  opacity: .8;
+  &__content{
+    padding: 33px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .nav{
+      &__burger {
+        width: 35px;
+        height: 35px;
+        position: relative;
+        margin: 0 auto;
+        cursor: pointer;
+        display: none;    
+        &_top {
+            position: absolute;
+            top: 5px;
+            width: 100%;
+            height: 5px;
+            background: rgb(50, 50, 50);
+            border: none;
+            border-radius: 4px 4px 4px 4px;
+            transition: transform 0.5s, top 0.2s;
+            transition-delay: 0.2s, 0s;
+        }     
+        &_mid {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 15px;
+            background: rgb(50, 50, 50);
+            border: none;
+            border-radius: 4px 4px 4px 4px;
+            transition: transform 0.5s, top 0.2s;
+            transition-delay: 0.2s, 0s;
+        }
+        &_bottom {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 25px;
+            background: rgb(50, 50, 50);
+            border: none;
+            border-radius: 4px 4px 4px 4px;
+            transition: all 0.5s;
+            transition-delay: 0.1s;
+        }
+        &.active {
+            .nav__burger_top {
+                top: 15px;
+                transform: rotate(140deg);
+            }
+            .nav__burger_mid {
+                top: 15px;
+                transform: rotate(-140deg);
+            }
+            .nav__burger_bottom {
+                opacity: 0;
+                top: 0;
+                transform: rotate(180deg);
+            }
+        }
+      }
+      &__list{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+      }
+      &__item{
+        display: inline-block;
+        margin-right: 25px;
+        @include ralewayBold(14px);
+        color: rgb(50, 50, 50);
+        .link{
+          border-bottom: 1px solid transparent;
+          text-transform: uppercase;
+          transition: color .3s linear, border-bottom .3s linear;
+          &:hover{
+            color: rgb(1, 153, 230);
+            border-bottom: 1px solid rgb(1, 153, 230);
+          }
+        }
+      }
+      &__item:last-child{
+        margin-right: 0;
+      }
+  } 
+}
+}
+
+.banner{
+  background-image: url('../img/header-bg.png');
+  background-size: cover;
+  &__content{
+    padding: 170px 0 210px;
+  }
+  &__flipbox{
+    perspective: 1400px;
+    width: 85%;
+    margin: 75px auto 0;
+    padding: 25px 23px 22px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 52px 0;
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    border: 2px solid rgb(1, 153, 230);
+    cursor: pointer;
+  }
+  &__link-to-form{
+      @include ralewayBold(24px);
+      align-self: center;
+      justify-self: center;
+      backface-visibility: hidden;
+      grid-row: 1;
+      grid-column: 1 / -1;
+      color: rgb(1, 153, 230);
+  }
+  .form{
+    transform: rotateY(180deg);
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, 22%);
+    grid-template-rows: 52px;
+    grid-row: 1;
+    grid-column: 1/-1;
+    backface-visibility: hidden;
+    justify-content: space-between;
+    grid-gap: 20px;
+    &__item{
+        border: 1px solid rgb(1, 153, 230);
+        border-radius: 3px;
+        background-color: rgba(1, 153, 230, .1);
+        box-shadow: -3px 0px 0px 0px rgb(1, 153, 230);
+        &::placeholder{
+          color: rgba(255, 255, 255, 1);
+        }
+        font-size: 16px;
+        font-family: "Source Sans Pro";
+        color: rgba(255, 255, 255, 1);
+        padding: 0 20px;
+    }
+    &__button{
+        background-color: #008ed6;
+        text-transform: uppercase;
+        color: rgb(255, 255, 255);
+        &:hover{
+          cursor: pointer;
+        }
+    }
+  }
+  &__main{
+    width: 70%;
+    margin: 0 auto 70px;
+    text-align: center;
+  }
+  &__text {
+    @include ralewayBold(45px);    
+  }
+  &__description{
+      margin-top: 50px;
+      font-size: 20px;
+      font-family: "Source Sans Pro";
+      color: rgb(255, 255, 255);
+      line-height: 1.5;
+  }
+}
+
+.brief{
+  &__content{
+    padding: 110px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 45% 55%;
+    grid-column-gap: 50px;
+  }
+  &__left{
+    background-color: $light-bg;
+  }
+  &__browser{
+    display: block;
+    grid-row: 1 / -1;
+    &_right{
+      grid-column-start: 1;
+    }
+    &_left{
+      grid-column-start: 2;
+    }
+  }
+  &__features{
+    &_right{
+      grid-column-start: 2;
+    }
+    &_left{
+      grid-column-start: 1;
+    }
+  }
+  &__feature{
+    display: flex;
+    margin-bottom: 50px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+  &__icon{
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border-radius: 3px;
+    background-color: rgb(1, 153, 230);
+    flex-basis: 32px;
+    height: 32px;
+    margin-right: 18px;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  &__header{
+    @include ralewayBold(16px); 
+    color: rgb(50, 50, 50);
+  }
+  &__description{
+      font-size: 16px;
+      font-family: "Source Sans Pro";
+      color: rgb(114, 114, 114);
+      line-height: 1.563;
+      margin-top: 15px;
+      
+  }
+}
+
+.features{
+  &__content{
+    padding: 110px 0;
+  }
+  &__list{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 300px));
+    grid-column-gap: 90px;
+    grid-row-gap: 85px;
+    justify-content: center;
+  }
+  &__item{
+    text-align: center;
+  }
+  &__icon{
+      font-size: 50px;
+      color: rgb(1, 153, 230);
+  }
+  &__header{
+      @include ralewayBold(20px);
+      color: rgb(50, 50, 50);
+      margin: 38px 0 28px;
+  }
+  &__description{
+      font-size: 16px;
+      font-family: "Source Sans Pro";
+      color: rgb(114, 114, 114);
+  }
+}
+
+.pricing{
+  background-color: $light-bg;
+  &__content{
+    padding: 112px 0 100px;
+  }
+  &__cards{
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    grid-gap: 30px;
+    justify-content: center;
+  }
+  .card{
+    border: 1px solid rgb(229, 229, 229);
+    background-color: rgb(255, 255, 255);
+    border-radius: 3px;
+    text-align: center;
+    &__heading{
+      background-color: rgb(50, 50, 50); 
+      padding: 25px 0; 
+      transition: background-color .5s linear;
+    }
+    &__header{
+      @include ralewayBold(18px);  
+    }
+    &__description{
+        font-size: 16px;
+        font-family: "Source Sans Pro";
+        color: rgb(255, 255, 255);
+    }
+    &__option{
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px dotted rgb(227, 227, 227);
+    }
+    &__item{
+      font-size: 16px;
+      font-family: "Source Sans Pro";
+      color: rgb(50, 50, 50);
+    }
+    &__value{
+      font-size: 16px;
+      font-weight: bold;
+      color: rgb(50, 50, 50);
+    }
+    &__footer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 30px;
+    }
+    &__price{
+      font-size: 16px;
+      font-family: "Source Sans Pro";
+      color: rgb(50, 50, 50);
+      font-weight: bold;
+    }
+    &__button{
+      @include ralewayBold(16px);
+        text-transform: uppercase;
+        color: rgb(114, 114, 114);
+        border-radius: 3px;
+        border: 1px solid rgb(114, 114, 114); 
+        padding: 14px 16px;
+        transition: border .5s linear, color .5s linear, background-color .5s linear;
+        
+    }
+    &__button:hover{
+      cursor: pointer;
+      color: rgb(255, 255, 255);
+      border: 1px solid rgb(255, 255, 255);
+      background-color: rgb(1, 153, 230); 
+    }
+  }
+  &__card:hover{
+    .card__heading{
+      background-color: rgb(1, 153, 230);  
+    }
+    .marked-text_card{
+      color: rgb(255, 255, 255);
+    }
+  }
+}
+
+.video{
+  &__content{
+    padding: 110px 0;
+    box-sizing: border-box;
+  }
+  &__container{
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    max-height: 500px;
+    margin: 50px auto;
+  }
+  &__player{
+    width: 100%;
+    height: 100%;
+  }
+  &__captions{
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    justify-content: center;
+    text-align: center;
+    grid-gap: 20px;
+  }
+  &__caption{
+      font-size: 18px;
+      font-family: "Source Sans Pro";
+      color: rgb(50, 50, 50);
+  }
+}
+
+.registration{
+  background-image: url('../img/registration-bg.png');
+  background-size: cover;
+  &__content{
+    padding: 140px 0 130px;
+  }
+  &__header{
+    @include ralewayBold(35px);
+    text-align: center;
+    margin: 30px 0;    
+  }
+  &__description{
+    @include ralewayBold(20px);
+    text-align: center;
+  }
+  &__text{
+      font-size: 16px;
+      font-family: "Source Sans Pro";
+      color: rgb(255, 255, 255);
+      text-align: center;
+  }
+  &__button{
+    @include ralewayBold(12px);
+    text-transform: uppercase;
+    background-color: #008ed6;
+    padding: 21px 32px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 10px auto 0;
+  }
+}
+
+.screenshot{
+  background-color: $light-bg;
+  &__content{
+    padding: 110px 0;
+  }
+  &__slider{
+    margin-top: 80px;
+  }
+  .slider{
+    &__img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.testimonials{
+  &__content{
+    padding: 110px 0;
+  }
+  &__partners{
+    margin: 85px 0 100px;
+    display: grid;
+    grid-template-columns: repeat(4, 140px);
+    justify-content: center;
+    align-items: center;
+    grid-gap: 40px;
+  }
+  &__logo{
+    margin: 0 auto;
+  }
+  &__cards{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(3, 32%);
+    grid-row-gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__card:before{
+    content: '\201C';
+    display: block;
+    position: relative;
+    margin: -15px auto;
+    width: 30px;
+    height: 30px;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 3px;
+    background-color: rgb(1, 153, 230);
+    box-shadow: 0px 0px 0px 4px rgba(229, 229, 229, 0.004);
+  }
+  &__text{
+      font-size: 16px;
+      font-family: "Source Sans Pro";
+      color: rgb(114, 114, 114);
+      font-style: italic;    
+      line-height: 1.563;  
+      padding: 55px 35px;
+      border-radius: 3px;
+      background-color: rgb(247, 248, 250);
+      box-shadow: 0px 2px 0px 0px rgba(229, 229, 229, 0.004);
+  }
+  &__wrapper:after{
+    content: '';
+    display: block;
+    position: relative;
+    margin: -5px auto;
+    width: 0;
+    height: 0;
+    border-top: 20px solid rgb(247, 248, 250);
+    border-left: 19px solid transparent;
+    border-right: 19px solid transparent; 
+  }
+  &__author{
+      margin-top: 15px;
+      font-size: 16px;
+      font-family: "Source Sans Pro";
+      color: rgb(1, 153, 230);
+      font-weight: bold;
+  }
+  &__author-company{
+      font-size: 13px;
+      font-family: "Source Sans Pro";
+      color: rgb(114, 114, 114);
+      line-height: 1.923;
+  }
+}
+
+.footer{
+  text-align: center;
+  .contact-us{
+    padding: 81px 0;
+    &__text{
+      @include ralewayBold(24px);
+      color: rgb(50, 50, 50);
+      text-align: center;
+    }
+    &__link{
+      margin-top: 30px;
+      @include ralewayBold(18px);
+      color: rgb(0, 142, 214);
+      text-transform: uppercase;
+    }
+  }
+    
+  &__copyright{
+    padding: 76px 0 98px;
+    background-color: $light-bg;
+  }
+  &__copyright-text{
+    font-size: 16px;
+    font-family: "Source Sans Pro";
+    color: rgb(145, 145, 145);
+    margin: 25px 0;
+  }
+}
+
+@media (max-width: 899px){
+  .brief{
+    &__content{
+      padding: 80px 0;
+      display: block;
+    }
+    &__browser{
+      margin: 0 auto;
+    }
+    &__features{
+      margin: 30px auto;
+    }
+    &__feature{
+      margin-bottom: 25px;
+      &:last-child{
+        margin-bottom: 0;
+      }
+    }
+    &__icon{
+      font-size: 24px;
+      text-align: center;
+      flex-basis: 45px;
+      height: 45px;
+      padding: 8px;
+    }
+    &__description{
+        font-size: 16px;
+        margin-top: 5px;   
+    }
+  }
+  .h2{
+    &_brief{
+      text-align: center;
+      margin: 0;
+    }
+  }
+  .h2-underline{
+      &_brief{
+        text-align: center;
+        margin: 20px auto;
+      }
+  }
+  .h3{
+      &_brief{
+        text-align: center;
+        margin: 0;
+      }
+  }
+  .pricing{
+    &__cards{
+      grid-template-columns: repeat(auto-fill, 50%);
+    }
+    .card{
+      &__heading{
+        padding: 15px 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 739px){
+  .header{
+    &__content{
+      padding: 20px 0;
+      flex-direction: column;
+      .nav{
+        &__burger {
+          margin: 20px auto 0;
+          display: block;
+        }
+        &__list{
+          display: none;
+          margin-top: 10px;
+        }
+        &__item{
+          margin-right: 0;
+          padding: 5px;
+          font-size: 16px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .banner{
+    &__content{
+      padding: 100px 0 140px;
+    }
+    &__main{
+      width: 85%;
+      margin-bottom: 30px;
+    }
+    &__description{
+        margin-top: 30px;
+    }
+    &__flipbox{
+      grid-template-rows: 52px 52px;
+      grid-row-gap: 20px;
+    }
+    &__link-to-form{
+      grid-row: 1 / -1;
+      grid-column: 1 / -1;
+  }
+    .form{
+      grid-template-columns: repeat(2, 45%);
+      grid-template-rows: repeat(2, 52px);
+      grid-column-gap: unset;
+      grid-row: 1 / -1;
+    }
+  }
+  .brief{
+    &__content{
+      padding: 60px 0;
+    }
+    &__features{
+      margin: 30px auto;
+    }
+    &__feature{
+      display: block;
+      max-width: 60%;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    &__icon{
+      margin: 0 auto;
+      max-width: 45px;
+      margin-bottom: 10px;
+    }
+  }
+  .features{
+    &__content{
+      padding: 60px 0;
+    }
+    &__list{
+      margin-top: 40px;
+      grid-row-gap: 40px;
+    }
+  }
+  .pricing{
+    &__content{
+      padding: 60px 0;
+    }
+    &__cards{
+      margin-top: 40px;
+      grid-template-columns: repeat(auto-fill, 70%);
+    }
+  }
+  .video{
+    &__content{
+      padding: 60px 0;
+    }
+    &__container{
+      height: 370px;
+    }
+    &__captions{
+      grid-template-columns: 100%;
+    }
+  }
+  .testimonials{
+    &__content{
+      padding: 60px 0;
+    }
+    &__partners{
+      margin: 70px 0;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 250px));
+      justify-content: center;
+      grid-gap: 40px;
+    }
+    &__cards{
+      grid-template-columns: 70%;
+      justify-content: center;
+    }
+    &__text{
+      padding: 55px;
+    }
+  }
+  .screenshot{
+    &__content{
+      padding: 60px 0;
+    }
+    .slider{
+      margin-top: 40px;
+    }
+  }
+  .registration{
+    &__content{
+      padding: 60px 0;
+    }
+  }
+  .footer{
+    .contact-us{
+      padding: 60px 0;
+    }
+    &__copyright{
+      padding: 60px 0;
+    }
+  }
+}
+
+@media (max-width: 580px){
+  .banner{
+    &__content{
+      padding: 80px 0 120px;
+    }
+    &__main{
+      width: 90%;
+    }
+    &__flipbox{
+        margin-top: 40px;
+    }
+  }
+  .brief{
+    &__browser{
+      width: 95%;
+    }
+  }
+  .pricing{
+    &__cards{
+      grid-template-columns: repeat(auto-fill, minmax(300px, 320px));
+    }
+  }
+  .video{
+    &__container{
+      height: 290px;
+    }
+  }
+  .testimonials{
+    &__partners{
+      margin: 40px 0;
+    }
+  }
+}
+
+@media (max-width: 420px){
+  .testimonials{
+    &__cards{
+      grid-template-columns: 85%;
+    }
+    &__text{
+      padding: 35px;
+    }
+  }
+  .banner{
+    &__content{
+      padding: 60px 0;
+    }
+    &__flipbox{
+      grid-template-rows: repeat(4, 40px);
+    }
+    .form{
+      grid-template-columns: 100%;
+      grid-template-rows: repeat(4, 40px);
+      grid-column-gap: 10;
+      // grid-row: 1 / -1;
+    }
+  }
+}
