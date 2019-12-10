@@ -703,6 +703,7 @@
         &__list{
           display: none;
           margin-top: 10px;
+          flex-direction: column;
         }
         &__item{
           margin-right: 0;

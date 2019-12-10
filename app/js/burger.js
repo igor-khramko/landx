@@ -9,7 +9,7 @@ $(document).ready(function() {
       : "burger" == i &&
         ($(".nav__list").slideDown(),
         $(".nav__burger").toggleClass("active"),
-        $(".nav__list").css("width", "100%"),
+        $(".nav__list").css("display", "flex"),
         (i = "close"));
   });
 });
