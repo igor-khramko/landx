@@ -611,6 +611,9 @@
       color: $main-dark-font;
       text-align: center;
     }
+    .icon{
+      font-size: 21px;
+    }
     &__link{
       margin-top: 30px;
       @include raleway(18px);
