@@ -2,20 +2,19 @@
 @import 'variables';
 @import 'fonts';
 @import 'slick';
-
-@mixin ralewayBold ($size){
-  font-family: 'ralewayBold';
-  color: rgb(255, 255, 255);
-  font-weight: bold;
+@import url('https://fonts.googleapis.com/css?family=Raleway:500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i&display=swap');
+@mixin raleway ($size){
+  font-family: 'Raleway', sans-serif;
+  color: $light-font;
+  font-weight: 700;
   font-size: $size;
 }
-
-* {
-  margin: 0;
-  padding: 0;
+@mixin sourceSansPro ($size){
+  font-family: 'Source Sans Pro', sans-serif;
+  color: $second-dark-font;
+  font-size: $size;
 }
-
-
 
 .container {
   max-width: 1140px;
@@ -33,9 +32,9 @@
 }
 
 .h2{
-  font-size: 35px;
-  font-family: "Raleway";
-  color: rgb(50, 50, 50);
+  @include raleway(35px);
+  color: $main-dark-font;
+  font-weight: 500;
   text-align: center;
   &_brief{
     text-align: left;
@@ -45,7 +44,7 @@
 }
 
 .h2-underline{
-    border-bottom: 1px solid rgb(1, 153, 230);
+    border-bottom: 1px solid $main-highlight;
     width: 68px;
     text-align: center;
     margin: 20px auto;
@@ -56,9 +55,7 @@
 }
 
 .h3{
-    font-size: 17px;
-    font-family: "Source Sans Pro";
-    color: rgb(114, 114, 114);
+  @include sourceSansPro(17px);
     text-align: center;
     &_brief{
       text-align: left;
@@ -68,8 +65,8 @@
 }
 
 .marked-text{
-  color: rgb(1, 153, 230);
-  font-family: inherit;
+  @include raleway(35px);
+  color: $main-highlight;
   &_card{
     transition: color .5s linear;
   }
@@ -90,17 +87,17 @@
   }
   &_footer{
     grid-template-columns: repeat(6, 25px);
-    color: $light-bg;
+    color: $dark-bg;
   }
   &__item{ 
     padding: 5px 0;
     text-align: center;
     &_header{
-      background-color: rgb(255, 255, 255);
+      background-color: $light-bg;
       border-radius: 50%;
     }
     &_footer{
-      background-color: rgb(145, 145, 145);
+      background-color: $socials-bg;
       padding: 5px 0;
       border-radius: 4px;
     }
@@ -112,8 +109,8 @@
 }
 
 .header{
-  background-color: rgb(255, 255, 255);
-  border-bottom: 1px solid rgb(50, 50, 50);
+  background-color: $light-bg;
+  border-bottom: 1px solid $second-dark-bg;
   box-sizing: border-box;
   position: sticky;
   top: 0;
@@ -137,7 +134,7 @@
             top: 5px;
             width: 100%;
             height: 5px;
-            background: rgb(50, 50, 50);
+            background: $second-dark-bg;
             border: none;
             border-radius: 4px 4px 4px 4px;
             transition: transform 0.5s, top 0.2s;
@@ -148,7 +145,7 @@
             width: 100%;
             height: 5px;
             top: 15px;
-            background: rgb(50, 50, 50);
+            background: $second-dark-bg;
             border: none;
             border-radius: 4px 4px 4px 4px;
             transition: transform 0.5s, top 0.2s;
@@ -159,7 +156,7 @@
             width: 100%;
             height: 5px;
             top: 25px;
-            background: rgb(50, 50, 50);
+            background: $second-dark-bg;
             border: none;
             border-radius: 4px 4px 4px 4px;
             transition: all 0.5s;
@@ -191,15 +188,15 @@
       &__item{
         display: inline-block;
         margin-right: 25px;
-        @include ralewayBold(14px);
-        color: rgb(50, 50, 50);
+        @include raleway(14px);
+        color: $main-dark-font;
         .link{
           border-bottom: 1px solid transparent;
           text-transform: uppercase;
           transition: color .3s linear, border-bottom .3s linear;
           &:hover{
-            color: rgb(1, 153, 230);
-            border-bottom: 1px solid rgb(1, 153, 230);
+            color: $main-highlight;
+            border-bottom: 1px solid $main-highlight;
           }
         }
       }
@@ -226,17 +223,17 @@
     grid-template-rows: 52px 0;
     transform-style: preserve-3d;
     border-radius: 20px;
-    border: 2px solid rgb(1, 153, 230);
+    border: 2px solid $main-highlight;
     cursor: pointer;
   }
   &__link-to-form{
-      @include ralewayBold(24px);
+      @include raleway(24px);
       align-self: center;
       justify-self: center;
       backface-visibility: hidden;
       grid-row: 1;
       grid-column: 1 / -1;
-      color: rgb(1, 153, 230);
+      color: $main-highlight;
   }
   .form{
     transform: rotateY(180deg);
@@ -250,22 +247,21 @@
     justify-content: space-between;
     grid-gap: 20px;
     &__item{
-        border: 1px solid rgb(1, 153, 230);
+        border: 1px solid $main-highlight;
         border-radius: 3px;
         background-color: rgba(1, 153, 230, .1);
-        box-shadow: -3px 0px 0px 0px rgb(1, 153, 230);
+        box-shadow: -3px 0px 0px 0px $main-highlight;
         &::placeholder{
-          color: rgba(255, 255, 255, 1);
+          color: $light-font;
         }
-        font-size: 16px;
-        font-family: "Source Sans Pro";
-        color: rgba(255, 255, 255, 1);
+        @include sourceSansPro(16px);
+        color: $light-font;
         padding: 0 20px;
     }
     &__button{
         background-color: #008ed6;
         text-transform: uppercase;
-        color: rgb(255, 255, 255);
+        color: $light-font;
         &:hover{
           cursor: pointer;
         }
@@ -277,13 +273,12 @@
     text-align: center;
   }
   &__text {
-    @include ralewayBold(45px);    
+    @include raleway(35px);    
   }
   &__description{
       margin-top: 50px;
-      font-size: 20px;
-      font-family: "Source Sans Pro";
-      color: rgb(255, 255, 255);
+      @include sourceSansPro(20px);
+      color: $light-font;
       line-height: 1.5;
   }
 }
@@ -297,7 +292,7 @@
     grid-column-gap: 50px;
   }
   &__left{
-    background-color: $light-bg;
+    background-color: $dark-bg;
   }
   &__browser{
     display: block;
@@ -326,10 +321,10 @@
   }
   &__icon{
     font-size: 14px;
-    color: rgb(255, 255, 255);
+    color: $light-font;
     text-align: center;
     border-radius: 3px;
-    background-color: rgb(1, 153, 230);
+    background-color: $main-highlight;
     flex-basis: 32px;
     height: 32px;
     margin-right: 18px;
@@ -337,13 +332,11 @@
     box-sizing: border-box;
   }
   &__header{
-    @include ralewayBold(16px); 
-    color: rgb(50, 50, 50);
+    @include raleway(16px); 
+    color: $main-dark-font;
   }
   &__description{
-      font-size: 16px;
-      font-family: "Source Sans Pro";
-      color: rgb(114, 114, 114);
+    @include sourceSansPro(16px);
       line-height: 1.563;
       margin-top: 15px;
       
@@ -367,22 +360,21 @@
   }
   &__icon{
       font-size: 50px;
-      color: rgb(1, 153, 230);
+      color: $main-highlight;
   }
   &__header{
-      @include ralewayBold(20px);
-      color: rgb(50, 50, 50);
+      @include raleway(20px);
+      font-weight: 600;
+      color: $main-dark-font;
       margin: 38px 0 28px;
   }
   &__description{
-      font-size: 16px;
-      font-family: "Source Sans Pro";
-      color: rgb(114, 114, 114);
+    @include sourceSansPro(16px);
   }
 }
 
 .pricing{
-  background-color: $light-bg;
+  background-color: $dark-bg;
   &__content{
     padding: 112px 0 100px;
   }
@@ -394,39 +386,37 @@
     justify-content: center;
   }
   .card{
-    border: 1px solid rgb(229, 229, 229);
-    background-color: rgb(255, 255, 255);
+    border: 1px solid $pricing-card-border;
+    background-color: $light-bg;
     border-radius: 3px;
     text-align: center;
     &__heading{
-      background-color: rgb(50, 50, 50); 
+      background-color: $second-dark-bg; 
       padding: 25px 0; 
       transition: background-color .5s linear;
     }
     &__header{
-      @include ralewayBold(18px);  
+      @include raleway(18px);  
     }
     &__description{
-        font-size: 16px;
-        font-family: "Source Sans Pro";
-        color: rgb(255, 255, 255);
+      @include sourceSansPro(16px);
+        color: $light-font;
     }
     &__option{
       padding: 20px 30px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px dotted rgb(227, 227, 227);
+      border-bottom: 1px dotted $pricing-card-border;
     }
     &__item{
-      font-size: 16px;
-      font-family: "Source Sans Pro";
-      color: rgb(50, 50, 50);
+      @include sourceSansPro(16px);
+      color: $main-dark-font;
     }
     &__value{
       font-size: 16px;
       font-weight: bold;
-      color: rgb(50, 50, 50);
+      color: $main-dark-font;
     }
     &__footer{
       display: flex;
@@ -435,34 +425,33 @@
       padding: 16px 30px;
     }
     &__price{
-      font-size: 16px;
-      font-family: "Source Sans Pro";
-      color: rgb(50, 50, 50);
+      @include sourceSansPro(16px);
+      color: $main-dark-font;
       font-weight: bold;
     }
     &__button{
-      @include ralewayBold(16px);
+      @include raleway(16px);
         text-transform: uppercase;
-        color: rgb(114, 114, 114);
+        color: $second-dark-font;
         border-radius: 3px;
-        border: 1px solid rgb(114, 114, 114); 
+        border: 1px solid $second-dark-font; 
         padding: 14px 16px;
         transition: border .5s linear, color .5s linear, background-color .5s linear;
         
     }
     &__button:hover{
       cursor: pointer;
-      color: rgb(255, 255, 255);
-      border: 1px solid rgb(255, 255, 255);
-      background-color: rgb(1, 153, 230); 
+      color: $light-font;
+      border: 1px solid $light-bg;
+      background-color: $main-highlight; 
     }
   }
   &__card:hover{
     .card__heading{
-      background-color: rgb(1, 153, 230);  
+      background-color: $main-highlight;  
     }
     .marked-text_card{
-      color: rgb(255, 255, 255);
+      color: $light-font;
     }
   }
 }
@@ -491,9 +480,8 @@
     grid-gap: 20px;
   }
   &__caption{
-      font-size: 18px;
-      font-family: "Source Sans Pro";
-      color: rgb(50, 50, 50);
+    @include sourceSansPro(18px);
+      color: $main-dark-font;
   }
 }
 
@@ -504,24 +492,23 @@
     padding: 140px 0 130px;
   }
   &__header{
-    @include ralewayBold(35px);
+    @include raleway(35px);
     text-align: center;
     margin: 30px 0;    
   }
   &__description{
-    @include ralewayBold(20px);
+    @include raleway(20px);
     text-align: center;
   }
   &__text{
-      font-size: 16px;
-      font-family: "Source Sans Pro";
-      color: rgb(255, 255, 255);
+    @include sourceSansPro(16px);
+      color: $light-font;
       text-align: center;
   }
   &__button{
-    @include ralewayBold(12px);
+    @include raleway(12px);
     text-transform: uppercase;
-    background-color: #008ed6;
+    background-color: $main-highlight;
     padding: 21px 32px;
     border-radius: 2px;
     border: none;
@@ -532,7 +519,7 @@
 }
 
 .screenshot{
-  background-color: $light-bg;
+  background-color: $dark-bg;
   &__content{
     padding: 110px 0;
   }
@@ -578,23 +565,19 @@
     width: 30px;
     height: 30px;
     font-size: 40px;
-    color: rgb(255, 255, 255);
+    color: $light-font;
     text-align: center;
-    border: 3px solid rgb(255, 255, 255);
+    border: 3px solid $light-bg;
     border-radius: 3px;
-    background-color: rgb(1, 153, 230);
-    box-shadow: 0px 0px 0px 4px rgba(229, 229, 229, 0.004);
+    background-color: $main-highlight;
   }
   &__text{
-      font-size: 16px;
-      font-family: "Source Sans Pro";
-      color: rgb(114, 114, 114);
+    @include sourceSansPro(16px);
       font-style: italic;    
       line-height: 1.563;  
       padding: 55px 35px;
       border-radius: 3px;
-      background-color: rgb(247, 248, 250);
-      box-shadow: 0px 2px 0px 0px rgba(229, 229, 229, 0.004);
+      background-color: $dark-bg;
   }
   &__wrapper:after{
     content: '';
@@ -603,21 +586,18 @@
     margin: -5px auto;
     width: 0;
     height: 0;
-    border-top: 20px solid rgb(247, 248, 250);
+    border-top: 20px solid $dark-bg;
     border-left: 19px solid transparent;
     border-right: 19px solid transparent; 
   }
   &__author{
       margin-top: 15px;
-      font-size: 16px;
-      font-family: "Source Sans Pro";
-      color: rgb(1, 153, 230);
+      @include sourceSansPro(16px);
+      color: $main-highlight;
       font-weight: bold;
   }
   &__author-company{
-      font-size: 13px;
-      font-family: "Source Sans Pro";
-      color: rgb(114, 114, 114);
+    @include sourceSansPro(13px);
       line-height: 1.923;
   }
 }
@@ -627,13 +607,13 @@
   .contact-us{
     padding: 81px 0;
     &__text{
-      @include ralewayBold(24px);
-      color: rgb(50, 50, 50);
+      @include raleway(24px);
+      color: $main-dark-font;
       text-align: center;
     }
     &__link{
       margin-top: 30px;
-      @include ralewayBold(18px);
+      @include raleway(18px);
       color: rgb(0, 142, 214);
       text-transform: uppercase;
     }
@@ -641,12 +621,11 @@
     
   &__copyright{
     padding: 76px 0 98px;
-    background-color: $light-bg;
+    background-color: $dark-bg;
   }
   &__copyright-text{
-    font-size: 16px;
-    font-family: "Source Sans Pro";
-    color: rgb(145, 145, 145);
+    @include sourceSansPro(16px);
+    color: $socials-bg;
     margin: 25px 0;
   }
 }

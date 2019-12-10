@@ -3,18 +3,20 @@ var gulp       = require('gulp'), // Подключаем Gulp
     pug         = require('gulp-pug'), //Подключаем Pug пакет,
     browserSync  = require('browser-sync'), // Подключаем Browser Sync
     del          = require('del'), // Подключаем библиотеку для удаления файлов и папок
-    concat      = require('gulp-concat');
-
+    concat      = require('gulp-concat'),
+    uglify = require('gulp-uglify'),
+    minify     = require('gulp-htmlmin');
 gulp.task('sass', () => { // Создаем таск Sass
     return gulp.src('app/scss/main.scss') // Берем источник
-        .pipe(sass().on('error', sass.logError)) // Преобразуем Sass в CSS посредством gulp-sass
+        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError)) // Преобразуем Sass в CSS посредством gulp-sass
         .pipe(gulp.dest('dist/css'))
         .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 });
 
 gulp.task('pug', () => { // Создаем таск Pug
     return gulp.src('app/pug/**/*.pug') // Берем источник
-        .pipe(pug({pretty:true})) // Преобразуем Pug в Html посредством gulp-pug
+        .pipe(pug()) // Преобразуем Pug в Html посредством gulp-pug
+        .pipe(minify({ collapseWhitespace: true, removeComments: true})) // Удаляем лишние Пробелы/комментарии
         .pipe(gulp.dest('dist'))
         .pipe(browserSync.reload({stream: true})) // Обновляем Html на странице при изменении
 });
@@ -33,6 +35,7 @@ gulp.task('browserSync', (done) => { // Создаем таск browser-sync
 gulp.task('scripts', () => {
     return gulp.src('app/js/**/*.js')
         .pipe(concat('script.js'))
+        .pipe(uglify())
         .pipe(gulp.dest('dist/js')); // Выгружаем в папку dist/js
 });
 
